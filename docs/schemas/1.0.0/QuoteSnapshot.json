@@ -1,0 +1,119 @@
+{
+  "$defs": {
+    "Level": {
+      "additionalProperties": false,
+      "properties": {
+        "price": {
+          "exclusiveMinimum": 0,
+          "title": "Price",
+          "type": "number"
+        },
+        "quantity": {
+          "minimum": 0,
+          "title": "Quantity",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "price",
+        "quantity"
+      ],
+      "title": "Level",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "asks": {
+      "items": {
+        "$ref": "#/$defs/Level"
+      },
+      "title": "Asks",
+      "type": "array"
+    },
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "bids": {
+      "items": {
+        "$ref": "#/$defs/Level"
+      },
+      "title": "Bids",
+      "type": "array"
+    },
+    "book_type": {
+      "const": "MBP",
+      "default": "MBP",
+      "title": "Book Type",
+      "type": "string"
+    },
+    "event_id": {
+      "title": "Event Id",
+      "type": "string"
+    },
+    "event_time": {
+      "format": "date-time",
+      "title": "Event Time",
+      "type": "string"
+    },
+    "kind": {
+      "const": "quote",
+      "default": "quote",
+      "title": "Kind",
+      "type": "string"
+    },
+    "processed_at": {
+      "format": "date-time",
+      "title": "Processed At",
+      "type": "string"
+    },
+    "raw_ref": {
+      "title": "Raw Ref",
+      "type": "string"
+    },
+    "received_at": {
+      "format": "date-time",
+      "title": "Received At",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "session_id": {
+      "title": "Session Id",
+      "type": "string"
+    },
+    "source": {
+      "default": "MOCK",
+      "enum": [
+        "MOCK",
+        "DNSE"
+      ],
+      "title": "Source",
+      "type": "string"
+    },
+    "symbol": {
+      "title": "Symbol",
+      "type": "string"
+    }
+  },
+  "required": [
+    "event_id",
+    "event_time",
+    "received_at",
+    "processed_at",
+    "available_at",
+    "raw_ref",
+    "symbol",
+    "session_id",
+    "bids",
+    "asks"
+  ],
+  "title": "QuoteSnapshot",
+  "type": "object"
+}

@@ -1,0 +1,106 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "event_id": {
+      "title": "Event Id",
+      "type": "string"
+    },
+    "event_time": {
+      "format": "date-time",
+      "title": "Event Time",
+      "type": "string"
+    },
+    "kind": {
+      "const": "trade",
+      "default": "trade",
+      "title": "Kind",
+      "type": "string"
+    },
+    "price": {
+      "exclusiveMinimum": 0,
+      "title": "Price",
+      "type": "number"
+    },
+    "processed_at": {
+      "format": "date-time",
+      "title": "Processed At",
+      "type": "string"
+    },
+    "quantity": {
+      "exclusiveMinimum": 0,
+      "title": "Quantity",
+      "type": "integer"
+    },
+    "raw_ref": {
+      "title": "Raw Ref",
+      "type": "string"
+    },
+    "received_at": {
+      "format": "date-time",
+      "title": "Received At",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "session_id": {
+      "title": "Session Id",
+      "type": "string"
+    },
+    "side": {
+      "default": "UNKNOWN",
+      "enum": [
+        "BUY",
+        "SELL",
+        "UNKNOWN"
+      ],
+      "title": "Side",
+      "type": "string"
+    },
+    "side_provenance": {
+      "default": "UNKNOWN",
+      "enum": [
+        "MOCK_INFERRED",
+        "VENDOR_INFERRED",
+        "UNKNOWN"
+      ],
+      "title": "Side Provenance",
+      "type": "string"
+    },
+    "source": {
+      "default": "MOCK",
+      "enum": [
+        "MOCK",
+        "DNSE"
+      ],
+      "title": "Source",
+      "type": "string"
+    },
+    "symbol": {
+      "title": "Symbol",
+      "type": "string"
+    }
+  },
+  "required": [
+    "event_id",
+    "event_time",
+    "received_at",
+    "processed_at",
+    "available_at",
+    "raw_ref",
+    "symbol",
+    "session_id",
+    "price",
+    "quantity"
+  ],
+  "title": "MarketTrade",
+  "type": "object"
+}

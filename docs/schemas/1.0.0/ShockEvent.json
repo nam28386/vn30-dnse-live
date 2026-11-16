@@ -1,0 +1,281 @@
+{
+  "$defs": {
+    "EventStatus": {
+      "enum": [
+        "DETECTED",
+        "ACTIVE",
+        "MARKOUT_PENDING",
+        "OBSERVING_RECOVERY",
+        "MATURED",
+        "INVALID",
+        "CENSORED"
+      ],
+      "title": "EventStatus",
+      "type": "string"
+    },
+    "Transition": {
+      "properties": {
+        "at": {
+          "format": "date-time",
+          "title": "At",
+          "type": "string"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/EventStatus"
+        }
+      },
+      "required": [
+        "status",
+        "at",
+        "reason"
+      ],
+      "title": "Transition",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "baseline_depth": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Baseline Depth"
+    },
+    "baseline_mid": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Baseline Mid"
+    },
+    "baseline_spread": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Baseline Spread"
+    },
+    "depth_recovery_seconds": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Depth Recovery Seconds"
+    },
+    "direction": {
+      "anyOf": [
+        {
+          "enum": [
+            -1,
+            1
+          ],
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Direction"
+    },
+    "event_id": {
+      "title": "Event Id",
+      "type": "string"
+    },
+    "event_time": {
+      "format": "date-time",
+      "title": "Event Time",
+      "type": "string"
+    },
+    "horizon_at": {
+      "format": "date-time",
+      "title": "Horizon At",
+      "type": "string"
+    },
+    "impact_retention": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Impact Retention"
+    },
+    "initial_impact": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Initial Impact"
+    },
+    "kind": {
+      "const": "shock",
+      "default": "shock",
+      "title": "Kind",
+      "type": "string"
+    },
+    "markout": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Markout"
+    },
+    "markout_observed_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Markout Observed At"
+    },
+    "markout_source_time": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Markout Source Time"
+    },
+    "observation_refs": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Observation Refs",
+      "type": "array"
+    },
+    "processed_at": {
+      "format": "date-time",
+      "title": "Processed At",
+      "type": "string"
+    },
+    "quantity": {
+      "title": "Quantity",
+      "type": "integer"
+    },
+    "raw_ref": {
+      "title": "Raw Ref",
+      "type": "string"
+    },
+    "received_at": {
+      "format": "date-time",
+      "title": "Received At",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "session_id": {
+      "title": "Session Id",
+      "type": "string"
+    },
+    "source": {
+      "default": "MOCK",
+      "enum": [
+        "MOCK",
+        "DNSE"
+      ],
+      "title": "Source",
+      "type": "string"
+    },
+    "spread_recovery_seconds": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Spread Recovery Seconds"
+    },
+    "status": {
+      "$ref": "#/$defs/EventStatus",
+      "default": "DETECTED"
+    },
+    "symbol": {
+      "title": "Symbol",
+      "type": "string"
+    },
+    "transitions": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Transition"
+      },
+      "title": "Transitions",
+      "type": "array"
+    }
+  },
+  "required": [
+    "event_id",
+    "event_time",
+    "received_at",
+    "processed_at",
+    "available_at",
+    "raw_ref",
+    "symbol",
+    "session_id",
+    "direction",
+    "quantity",
+    "baseline_mid",
+    "baseline_spread",
+    "baseline_depth",
+    "horizon_at"
+  ],
+  "title": "ShockEvent",
+  "type": "object"
+}

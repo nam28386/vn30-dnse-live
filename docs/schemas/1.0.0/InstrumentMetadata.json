@@ -1,0 +1,118 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "board_id": {
+      "title": "Board Id",
+      "type": "string"
+    },
+    "event_id": {
+      "title": "Event Id",
+      "type": "string"
+    },
+    "event_time": {
+      "format": "date-time",
+      "title": "Event Time",
+      "type": "string"
+    },
+    "expiry": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Expiry"
+    },
+    "instrument_type": {
+      "enum": [
+        "FUTURE",
+        "INDEX"
+      ],
+      "title": "Instrument Type",
+      "type": "string"
+    },
+    "kind": {
+      "const": "instrument",
+      "default": "instrument",
+      "title": "Kind",
+      "type": "string"
+    },
+    "listed_on": {
+      "format": "date",
+      "title": "Listed On",
+      "type": "string"
+    },
+    "processed_at": {
+      "format": "date-time",
+      "title": "Processed At",
+      "type": "string"
+    },
+    "raw_ref": {
+      "title": "Raw Ref",
+      "type": "string"
+    },
+    "received_at": {
+      "format": "date-time",
+      "title": "Received At",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source": {
+      "default": "MOCK",
+      "enum": [
+        "MOCK",
+        "DNSE"
+      ],
+      "title": "Source",
+      "type": "string"
+    },
+    "symbol": {
+      "title": "Symbol",
+      "type": "string"
+    },
+    "tick_size": {
+      "exclusiveMinimum": 0,
+      "title": "Tick Size",
+      "type": "number"
+    },
+    "tradable": {
+      "default": true,
+      "title": "Tradable",
+      "type": "boolean"
+    },
+    "underlying": {
+      "title": "Underlying",
+      "type": "string"
+    }
+  },
+  "required": [
+    "event_id",
+    "event_time",
+    "received_at",
+    "processed_at",
+    "available_at",
+    "raw_ref",
+    "symbol",
+    "underlying",
+    "instrument_type",
+    "listed_on",
+    "tick_size",
+    "board_id"
+  ],
+  "title": "InstrumentMetadata",
+  "type": "object"
+}

@@ -1,0 +1,86 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "event_id": {
+      "title": "Event Id",
+      "type": "string"
+    },
+    "event_time": {
+      "format": "date-time",
+      "title": "Event Time",
+      "type": "string"
+    },
+    "kind": {
+      "const": "session",
+      "default": "session",
+      "title": "Kind",
+      "type": "string"
+    },
+    "phase": {
+      "enum": [
+        "CONTINUOUS",
+        "AUCTION",
+        "BREAK",
+        "CLOSED"
+      ],
+      "title": "Phase",
+      "type": "string"
+    },
+    "processed_at": {
+      "format": "date-time",
+      "title": "Processed At",
+      "type": "string"
+    },
+    "raw_ref": {
+      "title": "Raw Ref",
+      "type": "string"
+    },
+    "received_at": {
+      "format": "date-time",
+      "title": "Received At",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "session_id": {
+      "title": "Session Id",
+      "type": "string"
+    },
+    "source": {
+      "default": "MOCK",
+      "enum": [
+        "MOCK",
+        "DNSE"
+      ],
+      "title": "Source",
+      "type": "string"
+    },
+    "trading_date": {
+      "format": "date",
+      "title": "Trading Date",
+      "type": "string"
+    }
+  },
+  "required": [
+    "event_id",
+    "event_time",
+    "received_at",
+    "processed_at",
+    "available_at",
+    "raw_ref",
+    "session_id",
+    "phase",
+    "trading_date"
+  ],
+  "title": "SessionState",
+  "type": "object"
+}

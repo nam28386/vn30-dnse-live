@@ -1,0 +1,135 @@
+{
+  "$defs": {
+    "Quality": {
+      "enum": [
+        "GOOD",
+        "INFERRED",
+        "STALE",
+        "MISSING",
+        "WARMUP",
+        "INVALID"
+      ],
+      "title": "Quality",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "available_at": {
+      "format": "date-time",
+      "title": "Available At",
+      "type": "string"
+    },
+    "connected": {
+      "title": "Connected",
+      "type": "boolean"
+    },
+    "event_id": {
+      "title": "Event Id",
+      "type": "string"
+    },
+    "event_time": {
+      "format": "date-time",
+      "title": "Event Time",
+      "type": "string"
+    },
+    "index_age_seconds": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Index Age Seconds"
+    },
+    "kind": {
+      "const": "feed_quality",
+      "default": "feed_quality",
+      "title": "Kind",
+      "type": "string"
+    },
+    "message": {
+      "title": "Message",
+      "type": "string"
+    },
+    "mode": {
+      "default": "MOCK",
+      "enum": [
+        "MOCK",
+        "LIVE"
+      ],
+      "title": "Mode",
+      "type": "string"
+    },
+    "processed_at": {
+      "format": "date-time",
+      "title": "Processed At",
+      "type": "string"
+    },
+    "quality": {
+      "$ref": "#/$defs/Quality"
+    },
+    "quote_age_seconds": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Quote Age Seconds"
+    },
+    "raw_ref": {
+      "title": "Raw Ref",
+      "type": "string"
+    },
+    "received_at": {
+      "format": "date-time",
+      "title": "Received At",
+      "type": "string"
+    },
+    "reconnects": {
+      "title": "Reconnects",
+      "type": "integer"
+    },
+    "rejected_records": {
+      "title": "Rejected Records",
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source": {
+      "default": "MOCK",
+      "enum": [
+        "MOCK",
+        "DNSE"
+      ],
+      "title": "Source",
+      "type": "string"
+    }
+  },
+  "required": [
+    "event_id",
+    "event_time",
+    "received_at",
+    "processed_at",
+    "available_at",
+    "raw_ref",
+    "connected",
+    "quote_age_seconds",
+    "index_age_seconds",
+    "rejected_records",
+    "reconnects",
+    "quality",
+    "message"
+  ],
+  "title": "FeedQualityState",
+  "type": "object"
+}
